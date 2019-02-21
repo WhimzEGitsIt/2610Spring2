@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Boxy Car Model.ma
-//Last modified: Thu, Feb 21, 2019 03:00:44 PM
+//Last modified: Thu, Feb 21, 2019 03:03:42 PM
 //Codeset: 1252
 requires maya "2018";
 currentUnit -l centimeter -a degree -t film;
@@ -13,15 +13,15 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "6DD23144-4BD0-BEA4-23C8-738AA30DB1F8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 9.1880048852615204 8.4874010846489316 39.440505708591658 ;
-	setAttr ".r" -type "double3" -8.7383521345666448 23.000000000071836 -6.4785535952151128e-16 ;
+	setAttr ".t" -type "double3" 13.222849398971574 5.3381511144056271 27.466859816763559 ;
+	setAttr ".r" -type "double3" -5.7383521345695865 26.200000000054732 -2.2154674095011757e-16 ;
 	setAttr ".rp" -type "double3" -1.7763568394002505e-15 0 3.3306690738754696e-16 ;
 	setAttr ".rpt" -type "double3" 3.2693014489381986e-16 1.2119465302847037e-16 7.3971046887009171e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "2317EA89-4F3D-2954-7757-4ABAAF3336A9";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 38.046438070182035;
+	setAttr ".coi" 31.716956423103689;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
