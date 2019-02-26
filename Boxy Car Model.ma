@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Boxy Car Model.ma
-//Last modified: Mon, Feb 25, 2019 10:59:24 PM
+//Last modified: Tue, Feb 26, 2019 02:12:56 AM
 //Codeset: 1252
 requires maya "2018";
 currentUnit -l centimeter -a degree -t film;
@@ -13,15 +13,15 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "6DD23144-4BD0-BEA4-23C8-738AA30DB1F8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 6.3209865377650161 13.619066582017787 53.739500482134076 ;
-	setAttr ".r" -type "double3" 347.06164784856099 1095.7999999995795 2.0659005436173746e-16 ;
+	setAttr ".t" -type "double3" 21.575764480337696 9.3869265945756339 25.19284463437727 ;
+	setAttr ".r" -type "double3" 349.46164784839766 1110.9999999990664 4.6381766412857231e-16 ;
 	setAttr ".rp" -type "double3" -1.7763568394002505e-15 0 3.3306690738754696e-16 ;
 	setAttr ".rpt" -type "double3" 3.2693014489381986e-16 1.2119465302847037e-16 7.3971046887009171e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "2317EA89-4F3D-2954-7757-4ABAAF3336A9";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 54.636243488793667;
+	setAttr ".coi" 44.089437923457112;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -3952,7 +3952,7 @@ createNode mesh -n "TrashCanShape" -p "TrashCan";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.49999998509883881 0.84374997019767761 ;
+	setAttr ".pv" -type "double2" 0.5 0.49807363748550415 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7290,6 +7290,12 @@ createNode materialInfo -n "materialInfo2";
 createNode groupId -n "groupId42";
 	rename -uid "62A87926-47FE-5807-5697-6A967C051F25";
 	setAttr ".ihi" 0;
+createNode polySoftEdge -n "polySoftEdge1";
+	rename -uid "B40FDE43-46DB-67B1-B365-588474171102";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[0:219]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".a" 0;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -7324,7 +7330,7 @@ select -ne :ikSystem;
 connectAttr "groupId41.id" "StreetLamp2Shape.iog.og[0].gid";
 connectAttr "StreetLamp:initialShadingGroup.mwc" "StreetLamp2Shape.iog.og[0].gco"
 		;
-connectAttr "transformGeometry1.og" "TrashCanShape.i";
+connectAttr "polySoftEdge1.out" "TrashCanShape.i";
 connectAttr "polyTweakUV2.uvtk[0]" "TrashCanShape.uvst[0].uvtw";
 connectAttr "pCylinder30_rotateX.o" "pCylinder30.rx";
 connectAttr "pCylinder30_rotateY.o" "pCylinder30.ry";
@@ -7380,6 +7386,8 @@ connectAttr "BoxTruckShape.iog.og[0]" "lambert3SG.dsm" -na;
 connectAttr "groupId42.msg" "lambert3SG.gn" -na;
 connectAttr "lambert3SG.msg" "materialInfo2.sg";
 connectAttr "lambert3.msg" "materialInfo2.m";
+connectAttr "transformGeometry1.og" "polySoftEdge1.ip";
+connectAttr "TrashCanShape.wm" "polySoftEdge1.mp";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "StreetLamp:initialShadingGroup.pa" ":renderPartition.st" -na;
 connectAttr "StreetLamp1:initialShadingGroup.pa" ":renderPartition.st" -na;
