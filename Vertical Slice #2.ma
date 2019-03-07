@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Vertical Slice #2.ma
-//Last modified: Thu, Mar 07, 2019 02:22:46 PM
+//Last modified: Thu, Mar 07, 2019 02:28:48 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -14,13 +14,13 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "85C2B02E-4D8C-2975-AC15-C4B050F08F4B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -18.994727487892536 7.2490684559370617 30.789907137391971 ;
-	setAttr ".r" -type "double3" -5.1383527292570026 -754.59999999992704 0 ;
+	setAttr ".t" -type "double3" -31.759488916761363 15.320237143267008 13.056615386649035 ;
+	setAttr ".r" -type "double3" -15.338352729281389 -1142.9999999998929 1.7514434130651016e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "BDE7FDA1-43FC-B0EF-44E0-7FA567C027F6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 38.984159126569217;
+	setAttr ".coi" 38.98415912656867;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -1824,11 +1824,18 @@ createNode mesh -n "pCube45Shape" -p "pCube45";
 	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.25 0.375 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 6 ".pt";
+	setAttr ".pt[3]" -type "float3" -0.25217661 0.0094883172 -0.2875987 ;
+	setAttr ".pt[14]" -type "float3" -0.045820698 0.094195932 0.069277734 ;
+	setAttr ".pt[19]" -type "float3" -0.096282758 0.017503172 -0.12251724 ;
+	setAttr ".pt[33]" -type "float3" -0.64425451 0.24145141 -0.24665646 ;
+	setAttr ".pt[40]" -type "float3" -0.1629983 0.023251809 -0.20383397 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "pCube46";
 	rename -uid "0C09E66E-4711-A27C-27B0-8F9FFF70A45D";
