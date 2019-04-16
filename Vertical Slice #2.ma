@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Vertical Slice #2.ma
-//Last modified: Tue, Apr 16, 2019 01:00:15 PM
+//Last modified: Tue, Apr 16, 2019 01:15:43 PM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -15,13 +15,13 @@ fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "85C2B02E-4D8C-2975-AC15-C4B050F08F4B";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -30.172916407420296 7.8550411874733479 26.214443081154407 ;
+	setAttr ".t" -type "double3" -50.835874733289259 26.488440966202923 66.077330729421618 ;
 	setAttr ".r" -type "double3" -22.538352720535396 -3987.3999999841044 -8.9561262798951688e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "BDE7FDA1-43FC-B0EF-44E0-7FA567C027F6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 52.563518635094802;
+	setAttr ".coi" 101.17638982934662;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
