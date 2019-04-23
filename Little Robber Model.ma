@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Little Robber Model.ma
-//Last modified: Sun, Apr 21, 2019 03:51:14 AM
+//Last modified: Tue, Apr 23, 2019 12:33:29 AM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -15,13 +15,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "ADAADF12-46DF-4E99-65AE-24A45EEE840D";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -8.5025759313511333 2.8946473260824472 9.3449526572675641 ;
-	setAttr ".r" -type "double3" -6.3383527484190818 -1484.5999999997937 -5.58363471982534e-16 ;
+	setAttr ".t" -type "double3" -1.2098128512447532 2.5851760311437513 3.6650761580094384 ;
+	setAttr ".r" -type "double3" -9.3383527528469941 -1090.1999999998798 -5.0494196982234223e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C26E2739-44FD-E92B-88F6-36B285A02F65";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 13.348605520396699;
+	setAttr ".coi" 2.9744865665041189;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -10602,6 +10602,47 @@ createNode joint -n "L_Wrist_Jnt" -p "L_Shoulder_Jnt";
 		 -6.8200125287750565e-16 0.3660290277355277 -0.93060343372189713 0 -0.95356992485724068 -0.28027142669871452 -0.1102375878909945 0
 		 0.6764850616455077 3.3134682178497314 0.16060552000999403 1;
 	setAttr ".radi" 0.1;
+createNode transform -n "Ctrl_TEMPLATE_GRP";
+	rename -uid "55FDBBEE-48A3-9775-4DBD-A1A1AAB03FE8";
+createNode transform -n "Ctrl_TEMPLATE_" -p "Ctrl_TEMPLATE_GRP";
+	rename -uid "D4494F68-46AC-F5A5-8999-3194D24F826F";
+createNode nurbsCurve -n "Ctrl_TEMPLATE_Shape" -p "Ctrl_TEMPLATE_";
+	rename -uid "2B7FF596-4129-7061-9152-C2858721CC2A";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+	setAttr -s 11 ".cp[0:10]" -type "double3" -0.45518962261753759 -2.7872325717182943e-17 
+		0.45518962261753759 -3.941742104412049e-17 -3.941742104412049e-17 0.64373533775721237 
+		0.45518962261753759 -2.7872325717182943e-17 0.45518962261753759 0.64373533775721259 
+		-1.6363370445408584e-32 3.3371353584476013e-17 0.45518962261753759 2.7872325717182943e-17 
+		-0.45518962261753759 6.44834090538967e-17 3.9417421044120539e-17 -0.64373533775721281 
+		-0.45518962261753759 2.7872325717182943e-17 -0.45518962261753759 -0.64373533775721259 
+		-8.9446245875170947e-33 -8.7785960721276534e-17 0 0 0 0 0 0 0 0 0;
+createNode transform -n "R_Shoulder_Ctrl_Grp";
+	rename -uid "11DDAE01-40CD-63A7-0979-3CA485ACCA42";
+	setAttr ".t" -type "double3" -0.82464909553527921 2.9048705101013188 1.4901161890239913e-08 ;
+	setAttr ".r" -type "double3" 167.51581711145391 -86.998312252654472 -167.53240956350979 ;
+	setAttr ".s" -type "double3" 1.0000000000000002 1.0000000000000002 1.0000000000000002 ;
+createNode transform -n "R_Shoulder_Ctrl" -p "R_Shoulder_Ctrl_Grp";
+	rename -uid "A752B3A8-4A78-C148-1C4A-33832F02CE5C";
+createNode nurbsCurve -n "R_Shoulder_CtrlShape" -p "R_Shoulder_Ctrl";
+	rename -uid "16439E20-4E93-87A2-88A7-DEBAFB8F4FAB";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		0.3284220022736869 2.0110047692701789e-17 -0.32842200227368701
+		2.8439902186988632e-17 2.8439902186988632e-17 -0.46445884979717533
+		-0.3284220022736869 2.0110047692701776e-17 -0.32842200227368679
+		-0.46445884979717555 -1.2845634826402558e-32 -2.4077628790772291e-17
+		-0.3284220022736869 -2.0110047692701783e-17 0.3284220022736869
+		-4.6525160642135548e-17 -2.8439902186988632e-17 0.46445884979717555
+		0.3284220022736869 -2.0110047692701776e-17 0.32842200227368679
+		0.46445884979717555 -1.8198303797627194e-32 6.3338089356719365e-17
+		0.3284220022736869 2.0110047692701789e-17 -0.32842200227368701
+		2.8439902186988632e-17 2.8439902186988632e-17 -0.46445884979717533
+		-0.3284220022736869 2.0110047692701776e-17 -0.32842200227368679
+		;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "50A2D1D3-4F65-CEBF-7812-BEA4966522DC";
 	setAttr -s 2 ".lnk";
@@ -12667,6 +12708,9 @@ createNode dagPose -n "bindPose1";
 	setAttr -s 16 ".m";
 	setAttr -s 16 ".p";
 	setAttr ".bp" yes;
+createNode makeNurbCircle -n "makeNurbCircle1";
+	rename -uid "F53A6731-4A58-AEEA-28C4-4481BF4E9E40";
+	setAttr ".nr" -type "double3" 0 1 0 ;
 select -ne :time1;
 	setAttr ".o" 4;
 	setAttr ".unw" 4;
@@ -12724,6 +12768,7 @@ connectAttr "Chest_Jnt.s" "R_Shoulder_Jnt.is";
 connectAttr "R_Shoulder_Jnt.s" "R_Wrist_Jnt.is";
 connectAttr "Chest_Jnt.s" "L_Shoulder_Jnt.is";
 connectAttr "L_Shoulder_Jnt.s" "L_Wrist_Jnt.is";
+connectAttr "makeNurbCircle1.oc" "Ctrl_TEMPLATE_Shape.cr";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
